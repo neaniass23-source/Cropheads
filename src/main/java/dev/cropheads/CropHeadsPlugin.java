@@ -63,7 +63,7 @@ public class CropHeadsPlugin extends JavaPlugin implements CommandExecutor, TabC
 
     // ------------------------------------------------------------ entrada por chat
     public void prompt(Player p, String text, Runnable back, Consumer<String> handler) {
-        Bukkit.getScheduler().runTask(this, p::closeInventory);
+        Bukkit.getScheduler().runTask(this, () -> p.closeInventory());
         prompts.put(p.getUniqueId(), in -> {
             if (!in.equalsIgnoreCase("cancelar")) handler.accept(in);
             back.run();
