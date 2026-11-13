@@ -1,0 +1,17 @@
+name: CropHeads
+version: '${project.version}'
+main: dev.cropheads.CropHeadsPlugin
+api-version: '1.21'
+description: Cabezas que regeneran cultivos automaticamente con menu, hologramas y particulas.
+commands:
+  cropheads:
+    description: Menu y administracion de CropHeads
+    aliases: [chead, cheads]
+    permission: cropheads.admin
+permissions:
+  cropheads.admin:
+    description: Gestionar cabezas (menu, colocar, romper, comandos)
+    default: op
+  cropheads.bypass:
+    description: Ignorar la proteccion/regeneracion de las regiones de cabezas
+    default: false

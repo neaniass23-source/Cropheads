@@ -1,0 +1,63 @@
+# ============================================================
+#  CropHeads - configuracion global
+#  Todo lo de "defaults" se aplica a las cabezas NUEVAS.
+#  Cada cabeza se edita despues desde el menu (/cropheads).
+# ============================================================
+defaults:
+  radius: 30                 # alcance (cubo) alrededor de la cabeza
+  regen-seconds: 10          # tiempo de regeneracion
+  permission: ""             # permiso para cosechar ("" = todos pueden)
+  protect-other-blocks: true # el usuario SOLO puede romper cultivos dentro del radio
+  no-water: true             # los cultivos no necesitan agua
+  drop-mode: DEFAULT         # DEFAULT | CUSTOM | BOTH
+  drop-chance: 100           # % de probabilidad de soltar los drops custom
+  hologram:
+    enabled: true
+    lines:
+      - "<gradient:#55ff55:#00aa00><bold>Cultivos</bold></gradient>"
+      - "<gray>Regeneran en <white>%regen%s</white>"
+    shadow: true
+    see-through: false
+    background: "#80000000"  # transparent | default | #AARRGGBB | #RRGGBB
+    scale: 1.0
+    y-offset: 1.6
+  particles:
+    enabled: true
+    type: HAPPY_VILLAGER
+    count: 4
+    y-offset: 1.2
+
+max-radius: 128
+# Textura de la cabeza por defecto: nombre de jugador, URL de textures.minecraft.net o base64
+default-head-texture: "MHF_Melon"
+
+# Presets que aparecen en el menu "Cambiar cabeza". nombre: valor (nombre / URL / base64)
+head-presets:
+  Sandia: "MHF_Melon"
+  Calabaza: "MHF_Pumpkin"
+  Cactus: "MHF_Cactus"
+
+# Bloques que cuentan como "cultivo". Los que tienen edad (Ageable) se resetean a edad 0
+# y crecen de golpe tras el tiempo; los demas (MELON, PUMPKIN) desaparecen y reaparecen.
+crops:
+  - WHEAT
+  - CARROTS
+  - POTATOES
+  - BEETROOTS
+  - NETHER_WART
+  - COCOA
+  - SWEET_BERRY_BUSH
+  - MELON
+  - PUMPKIN
+
+messages:
+  prefix: "<dark_gray>[<green>CropHeads</green>]</dark_gray> <gray>"
+  no-permission: "<red>No tienes permiso para cosechar aqui."
+  head-created: "<green>Cabeza <white>#{id}</white> creada. Click derecho sobre ella para abrir el menu."
+  head-removed: "<yellow>Cabeza #{id} eliminada."
+  texture-changed: "<green>Cabeza cambiada correctamente."
+  texture-failed: "<red>No se pudo cargar esa textura."
+  prompt: "<yellow>{text} <gray>(escribe <white>cancelar</white> para salir)"
+  invalid-number: "<red>Numero no valido."
+  given: "<green>Cabeza entregada a {player}."
+  reloaded: "<green>Configuracion recargada."
