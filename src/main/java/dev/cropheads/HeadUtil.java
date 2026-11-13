@@ -38,7 +38,7 @@ public final class HeadUtil {
                 if (m.find()) return CompletableFuture.completedFuture(fromUrl(m.group(1)));
                 return CompletableFuture.failedFuture(new IllegalArgumentException("base64 invalido"));
             }
-            return Bukkit.createPlayerProfile(value).update();
+            return Bukkit.createPlayerProfile(value).update().thenApply(pr -> (PlayerProfile) pr);
         } catch (Exception ex) {
             return CompletableFuture.failedFuture(ex);
         }
